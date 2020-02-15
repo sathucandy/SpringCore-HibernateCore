@@ -21,9 +21,11 @@ public class MainDemoApp {
 		// call the buisness method
 		Account myAccount = new Account();
 		theAccountDAO.addAccount(myAccount, true);
+		theAccountDAO.doWork();
 
 		// call the membership buisness method
 		theMembershipDAO.addSillyMember();
+		theMembershipDAO.goToSleep();
 
 //		System.out.println("\nLets print it again\n");
 
