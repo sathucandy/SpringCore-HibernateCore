@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -17,13 +18,24 @@ import com.sarthak.aopdemo.Account;
 @Order(2)
 public class MyDemoLoggingAspect {
 
+	@AfterThrowing(pointcut = "execution(* com.sarthak.aopdemo.dao.AccountDAO.findAccounts(..))", throwing = "theExe")
+	public void afterThrowingFindAccountAdvice(JoinPoint theJoinPoint, Throwable theExe) {
+		// print out which method we are advising on
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n======> Executing @AfterThrowing on method: " + method);
+
+		// log the exception
+		System.out.println("\n======> Exception is: " + theExe);
+
+	}
+
 	// add a new advice for @AfterReturning on the find accounts advice
 
 	@AfterReturning(pointcut = "execution(* com.sarthak.aopdemo.dao.AccountDAO.findAccounts(..))", returning = "result")
-	public void afterReturningFindAccountsAdvice(JoinPoint theJjoinPoint, List<Account> result) {
+	public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Account> result) {
 
 		// print out which method we are advising on
-		String method = theJjoinPoint.getSignature().toShortString();
+		String method = theJoinPoint.getSignature().toShortString();
 		System.out.println("\n======> Executing @AfterReturning on method: " + method);
 
 		// print out the results of the method call

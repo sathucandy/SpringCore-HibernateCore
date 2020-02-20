@@ -23,7 +23,7 @@ public class AfterThrowingDemoApp {
 			boolean tripWire = true;
 			theAccounts = theAccountDAO.findAccounts(tripWire);
 		} catch (Exception exe) {
-			System.out.println("Main program caught exception" + exe);
+			System.out.println("\n\nMain program caught exception" + exe);
 		}
 
 		// display the accounts
