@@ -19,13 +19,15 @@ public class AfterThrowingDemoApp {
 		// call method to find the account
 		List<Account> theAccounts = null;
 		try {
-			theAccounts = theAccountDAO.findAccounts();
+			// add a boolean flag to simulate an exception
+			boolean tripWire = true;
+			theAccounts = theAccountDAO.findAccounts(tripWire);
 		} catch (Exception exe) {
-			System.out.println("Main program caught exception");
+			System.out.println("Main program caught exception" + exe);
 		}
 
 		// display the accounts
-		System.out.println("\n\nMain Program: After Throwung Demo App");
+		System.out.println("\n\nMain Program: After Throwing Demo App");
 		System.out.println("-----");
 		System.out.println(theAccounts);
 		System.out.println("\n");

@@ -17,7 +17,7 @@ public class AfterReturningDemoApp {
 		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
 
 		// call method to find the account
-		List<Account> theAccounts = theAccountDAO.findAccounts();
+		List<Account> theAccounts = theAccountDAO.findAccounts(false);
 
 		// display the accounts
 		System.out.println("\n\nMain Program: After Running Demo App");
