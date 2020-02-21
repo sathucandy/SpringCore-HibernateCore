@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.sarthak.aopdemo.dao.AccountDAO;
+import com.sarthak.aopdemo.service.TrafficFortuneService;
 
 public class AroundDemoApp {
 
@@ -14,23 +15,15 @@ public class AroundDemoApp {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DemoConfig.class);
 
 		// get the bean from spring container
-		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
+		TrafficFortuneService fortuneService = context.getBean("trafficFortuneService", TrafficFortuneService.class);
 
-		// call method to find the account
-		List<Account> theAccounts = null;
-		try {
-			// add a boolean flag to simulate an exception
-			boolean tripWire = false;
-			theAccounts = theAccountDAO.findAccounts(tripWire);
-		} catch (Exception exe) {
-			System.out.println("\n\nMain program caught exception" + exe);
-		}
+		System.out.println("\nMain program demo app");
 
-		// display the accounts
-		System.out.println("\n\nMain Program: After Throwing Demo App");
-		System.out.println("-----");
-		System.out.println(theAccounts);
-		System.out.println("\n");
+		System.out.println("Calling getFortune");
+
+		String data = fortuneService.getFortune();
+		System.out.println("\nMy fortune is: " + data);
+		System.out.println("Finished");
 
 		// close the context
 		context.close();
