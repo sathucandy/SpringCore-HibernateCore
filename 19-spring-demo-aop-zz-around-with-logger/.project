@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>19-spring-demo-aop-zz-after-with-logger</name>
+	<name>19-spring-demo-aop-zz-around-with-logger</name>
 	<comment></comment>
 	<projects>
 	</projects>
