@@ -23,4 +23,12 @@ public class TrafficFortuneService {
 
 	}
 
+	public String getFortune(boolean tripWire) {
+		// TODO Auto-generated method stub
+		if (tripWire) {
+			throw new RuntimeException("Major accident! Hihway is closed");
+		}
+		return getFortune();
+	}
+
 }
