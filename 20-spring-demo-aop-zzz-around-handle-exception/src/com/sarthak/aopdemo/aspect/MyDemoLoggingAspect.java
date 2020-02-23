@@ -45,7 +45,8 @@ public class MyDemoLoggingAspect {
 			myLogger.warning(e.getMessage());
 
 			// give the user a custome message
-			result = "Private helicopter on the way";
+//			result = "Private helicopter on the way";
+			throw e;
 		}
 
 		// get end timestamp
