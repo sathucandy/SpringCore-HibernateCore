@@ -1,14 +1,14 @@
 <html>
 
 <head>
-	<title>luv2code Company Home Page</title>
+<title>Sarthak Company Home Page</title>
 </head>
 
 <body>
-	<h2>luv2code Company Home Page</h2>
+	<h2>Sarthak Company Home Page</h2>
 	<hr>
-	
-	Welcome to the luv2code company home page!
+
+	Welcome to the Sarthak company home page!
 
 </body>
 
