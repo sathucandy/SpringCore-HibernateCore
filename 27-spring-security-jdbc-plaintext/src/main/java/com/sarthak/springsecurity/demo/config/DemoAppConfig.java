@@ -62,12 +62,32 @@ public class DemoAppConfig {
 
 		logger.info(">>> jdbc.url=" + env.getProperty("jdbc.url"));
 		logger.info(">>> jdbc.user=" + env.getProperty("jdbc.user"));
-		
+
 		// set database connection props
+		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		securityDataSource.setUser(env.getProperty("jdbc.user"));
+		securityDataSource.setPassword(env.getProperty("jdbc.password"));
+
+		// set connection pool properties
+		securityDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
+		securityDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
+		securityDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
+		securityDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
 
 		// set connection pool props
-
 		return securityDataSource;
+	}
+
+	// need a helper function
+	// read environment properties and convert to int
+
+	private int getIntProperty(String property) {
+
+		// now convert to int
+		String propValue = env.getProperty(property);
+		int intPropVal = Integer.parseInt(propValue);
+
+		return intPropVal;
 	}
 
 }
